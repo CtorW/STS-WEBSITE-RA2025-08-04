@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STS Library RA2-7</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- load tailwind here -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="img/sts-logo-web.png" "image/x-icon">
+    <!-- load for material icons here -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body class="bg-[--background-default] text-[--on-surface-variant] min-h-screen flex flex-col md:flex-row">
+    <div id="message-box" class="message-box"></div>
+
+    <!-- mobile mode screens -->
+    <div id="mobile-drawer" class="fixed inset-y-0 right-0 w-64 bg-[--background-paper] z-50 transform translate-x-full transition-transform duration-300 md:hidden p-4">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold font-google-sans">Menu</h2>
+            <button onclick="toggleMobileDrawer()">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <nav>
+            <ul class="space-y-2">
+                <li onclick="showPage(this, 'home')">
+                    <button class="nav-item flex items-center w-full px-4 py-2 rounded-full text-left transition-colors duration-200 physics-btn">
+                        <span class="material-symbols-outlined nav-icon mr-4">home</span>
+                        <span class="font-google-sans-text">Home</span>
+                    </button>
+                </li>
+                <li onclick="showPage(this, 'news')">
+                    <button class="nav-item flex items-center w-full px-4 py-2 rounded-full text-left transition-colors duration-200 physics-btn">
+                        <span class="material-symbols-outlined nav-icon mr-4">article</span>
+                        <span class="font-google-sans-text">News</span>
+                    </button>
+                </li>
+                <li onclick="showPage(this, 'gallery')">
+                    <button class="nav-item flex items-center w-full px-4 py-2 rounded-full text-left transition-colors duration-200 physics-btn">
+                        <span class="material-symbols-outlined nav-icon mr-4">photo_library</span>
+                        <span class="font-google-sans-text">Gallery</span>
+                    </button>
+                </li>
+                <li onclick="showPage(this, 'free-courses')">
+                    <button class="nav-item flex items-center w-full px-4 py-2 rounded-full text-left transition-colors duration-200 physics-btn">
+                        <span class="material-symbols-outlined nav-icon mr-4">school</span>
+                        <span class="font-google-sans-text">Free Courses</span>
+                    </button>
+                </li>
+                <li onclick="showPage(this, 'about')">
+                    <button class="nav-item flex items-center w-full px-4 py-2 rounded-full text-left transition-colors duration-200 physics-btn">
+                        <span class="material-symbols-outlined nav-icon mr-4">info</span>
+                        <span class="font-google-sans-text">About</span>
+                    </button>
+                </li>
+                <li onclick="showPage(this, 'md3')">
+                    <button class="nav-item flex items-center w-full px-4 py-2 rounded-full text-left transition-colors duration-200 physics-btn">
+                        <span class="material-symbols-outlined nav-icon mr-4">palette</span>
+                        <span class="font-google-sans-text">Material Design 3</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- navigation pages section -->
+    <aside id="desktop-drawer" class="fixed inset-y-0 left-0 w-64 bg-[--background-paper] p-4 hidden md:block rounded-r-3xl shadow-lg z-40">
+        <h1 class="text-2xl font-bold text-[--on-surface-variant] mb-6 font-google-sans">STS Library RA2-7</h1>
+        <nav>
+            <ul class="space-y-2">
+                <li onclick="showPage(this, 'home')">
+                    <button class="nav-item flex items-center w-full px-4 py-2 rounded-full text-left transition-colors duration-200 physics-btn">
+                        <span class="material-symbols-outlined nav-icon mr-4">home</span>
+                        <span class="font-google-sans-text">Home</span>
+                    </button>
+                </li>
+                <li onclick="showPage(this, 'news')">
+                    <button class="nav-item flex items-center w-full px-4 py-2 rounded-full text-left transition-colors duration-200 physics-btn">
+                        <span class="material-symbols-outlined nav-icon mr-4">article</span>
+                        <span class="font-google-sans-text">News</span>
+                    </button>
+                </li>
+                <li onclick="showPage(this, 'gallery')">
+                    <button class="nav-item flex items-center w-full px-4 py-2 rounded-full text-left transition-colors duration-200 physics-btn">
+                        <span class="material-symbols-outlined nav-icon mr-4">photo_library</span>
+                        <span class="font-google-sans-text">Gallery</span>
+                    </button>
+                </li>
+                <li onclick="showPage(this, 'free-courses')">
+                    <button class="nav-item flex items-center w-full px-4 py-2 rounded-full text-left transition-colors duration-200 physics-btn">
+                        <span class="material-symbols-outlined nav-icon mr-4">school</span>
+                        <span class="font-google-sans-text">Free Courses</span>
+                    </button>
+                </li>
+                <li onclick="showPage(this, 'about')">
+                    <button class="nav-item flex items-center w-full px-4 py-2 rounded-full text-left transition-colors duration-200 physics-btn">
+                        <span class="material-symbols-outlined nav-icon mr-4">info</span>
+                        <span class="font-google-sans-text">About</span>
+                    </button>
+                </li>
+                <li onclick="showPage(this, 'md3')">
+                    <button class="nav-item flex items-center w-full px-4 py-2 rounded-full text-left transition-colors duration-200 physics-btn">
+                        <span class="material-symbols-outlined nav-icon mr-4">palette</span>
+                        <span class="font-google-sans-text">Material Design 3</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- main content here -->
+    <main class="flex-1 p-4 mt-16 md:mt-0 md:ml-64">
+        <header class="fixed top-0 left-0 w-full md:hidden bg-[--primary-color] text-white p-4 flex justify-between items-center z-30 shadow-md">
+            <h1 class="text-xl font-bold font-google-sans">STS Library RA2-7</h1>
+            <div class="flex items-center">
+                <button id="mode-toggle-mobile" class="p-2 rounded-full transition-colors duration-200 physics-btn">
+                    <span class="material-symbols-outlined text-white">brightness_4</span>
+                </button>
+                <button onclick="toggleMobileDrawer()" class="p-2 rounded-full transition-colors duration-200 ml-2 physics-btn">
+                    <span class="material-symbols-outlined text-white">menu</span>
+                </button>
+            </div>
+        </header>
+
+        <div class="hidden md:flex justify-end p-4">
+            <button id="mode-toggle-desktop" class="p-2 rounded-full transition-colors duration-200 physics-btn">
+                <span class="material-symbols-outlined text-[--on-surface-variant]">brightness_4</span>
+            </button>
+        </div>
+
+        <div id="pages-container" class="mt-8 md:mt-4 p-6 md:p-8 rounded-3xl content-container shadow-xl">
+            <!-- home page -->
+            <section id="home-page" class="page">
+                <div class="text-center p-8 rounded-3xl mb-8">
+                    <h2 class="text-5xl font-bold text-[--on-surface-variant] mb-4 font-google-sans">Welcome to the STS Library</h2>
+                    <p class="text-xl text-[--on-surface-variant] mb-6 font-google-sans-text">Your gateway to a world of knowledge. Explore our collections, discover new courses, and more.</p>
+                    <button class="bg-[--primary-color] text-[--primary-text-color] font-bold py-3 px-8 rounded-full shadow-lg hover:bg-opacity-90 transition-colors duration-200 physics-btn font-google-sans-text">Start Exploring</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                    <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x400/D0BCFF/1C1B1F?text=Latest+News" alt="Latest news" class="w-full h-40 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Latest News</h3>
+                            <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">Stay up-to-date with our latest announcements and events.</p>
+                            <button onclick="showMessage('Navigating to news article')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">Read More</button>
+                        </div>
+                    </div>
+                    <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x400/9575CD/FFFFFF?text=Browse+Gallery" alt="Browse gallery" class="w-full h-40 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Browse Gallery</h3>
+                            <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">View a collection of beautiful images from our events.</p>
+                            <button onclick="showMessage('Opening gallery view')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Gallery</button>
+                        </div>
+                    </div>
+                    <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x400/6750A4/FFFFFF?text=Free+Courses" alt="Free courses" class="w-full h-40 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Free Courses</h3>
+                            <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">Learn something new with our completely free courses.</p>
+                            <button onclick="showMessage('Exploring free courses')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">Explore Courses</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- news page -->
+            <section id="news-page" class="page hidden">
+                <h2 class="text-3xl font-bold text-[--on-surface-variant] mb-8 font-google-sans">Latest News</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x400/9575CD/FFFFFF?text=News+Article+1" alt="News Article 1" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <p class="text-sm text-[--on-surface-variant] mb-1 font-google-sans-text">October 26, 2023</p>
+                            <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">News Headline 1</h3>
+                            <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">A short summary of the news article goes here. This template is designed to look clean and organized, similar to Google News.</p>
+                            <button onclick="showMessage('Navigating to article 1')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">Read Article</button>
+                        </div>
+                    </div>
+                    <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x400/6750A4/FFFFFF?text=News+Article+2" alt="News Article 2" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <p class="text-sm text-[--on-surface-variant] mb-1 font-google-sans-text">October 25, 2023</p>
+                            <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">News Headline 2</h3>
+                            <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">A short summary of the news article goes here. This template is designed to look clean and organized, similar to Google News.</p>
+                            <button onclick="showMessage('Navigating to article 2')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">Read Article</button>
+                        </div>
+                    </div>
+                    <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x400/CCC4DA/1C1B1F?text=News+Article+3" alt="News Article 3" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <p class="text-sm text-[--on-surface-variant] mb-1 font-google-sans-text">October 24, 2023</p>
+                            <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">News Headline 3</h3>
+                            <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">A short summary of the news article goes here. This template is designed to look clean and organized, similar to Google News.</p>
+                            <button onclick="showMessage('Navigating to article 3')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">Read Article</button>
+                        </div>
+                    </div>
+                    <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x400/6750A4/FFFFFF?text=News+Article+4" alt="News Article 4" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <p class="text-sm text-[--on-surface-variant] mb-1 font-google-sans-text">October 23, 2023</p>
+                            <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">News Headline 4</h3>
+                            <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">A short summary of the news article goes here. This template is designed to look clean and organized, similar to Google News.</p>
+                            <button onclick="showMessage('Navigating to article 4')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">Read Article</button>
+                        </div>
+                    </div>
+                    <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x400/9575CD/FFFFFF?text=News+Article+5" alt="News Article 5" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <p class="text-sm text-[--on-surface-variant] mb-1 font-google-sans-text">October 22, 2023</p>
+                            <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">News Headline 5</h3>
+                            <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">A short summary of the news article goes here. This template is designed to look clean and organized, similar to Google News.</p>
+                            <button onclick="showMessage('Navigating to article 5')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">Read Article</button>
+                        </div>
+                    </div>
+                    <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x400/CCC4DA/1C1B1F?text=News+Article+6" alt="News Article 6" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <p class="text-sm text-[--on-surface-variant] mb-1 font-google-sans-text">October 21, 2023</p>
+                            <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">News Headline 6</h3>
+                            <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">A short summary of the news article goes here. This template is designed to look clean and organized, similar to Google News.</p>
+                            <button onclick="showMessage('Navigating to article 6')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">Read Article</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- gallery page -->
+            <section id="gallery-page" class="page hidden">
+                <h2 class="text-3xl font-bold text-[--on-surface-variant] mb-8 font-google-sans">Gallery</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x400/6750A4/FFFFFF?text=Project+Showcase" alt="Project Showcase" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Project Showcase</h3>
+                            <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">A glimpse into the latest projects from our students and faculty, demonstrating creativity and technical skill.</p>
+                            <button onclick="showMessage('Viewing full image')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Full Image</button>
+                        </div>
+                    </div>
+                    <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x400/9575CD/FFFFFF?text=Classroom+Activities" alt="Classroom Activities" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Classroom Activities</h3>
+                            <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">Photos capturing dynamic learning environments and engaging group discussions.</p>
+                            <button onclick="showMessage('Viewing full image')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Full Image</button>
+                        </div>
+                    </div>
+                    <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x400/F3EDF7/1C1B1F?text=Lab+Experiments" alt="Lab Experiments" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Lab Experiments</h3>
+                            <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">Highlighting hands-on experiences and scientific discoveries in our state-of-the-art laboratories.</p>
+                            <button onclick="showMessage('Viewing full image')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Full Image</button>
+                        </div>
+                    </div>
+                    <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x400/CCC4DA/1C1B1F?text=Campus+Tour" alt="Campus Tour" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Campus Tour</h3>
+                            <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">Images showcasing the beautiful architecture and vibrant life of the campus.</p>
+                            <button onclick="showMessage('Viewing full image')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Full Image</button>
+                        </div>
+                    </div>
+                    <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x400/D0BCFF/1C1B1F?text=Guest+Speakers" alt="Guest Speakers" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Guest Speakers</h3>
+                            <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">Moments from our recent lecture series, featuring prominent figures in science and technology.</p>
+                            <button onclick="showMessage('Viewing full image')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Full Image</button>
+                        </div>
+                    </div>
+                    <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x400/4B3F51/FFFFFF?text=Library+Archives" alt="Library Archives" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Library Archives</h3>
+                            <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">A look into the rare books and historical documents housed in our special collections.</p>
+                            <button onclick="showMessage('Viewing full image')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Full Image</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- free courses page -->
+            <section id="free-courses-page" class="page hidden">
+                <h2 class="text-3xl font-bold text-[--on-surface-variant] mb-8 font-google-sans">Free Courses</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x400/9575CD/FFFFFF?text=Physics" alt="Introduction to Physics" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Introduction to Physics</h3>
+                            <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">Explore the fundamental principles of the universe, from classical mechanics to quantum theory.</p>
+                            <button onclick="showMessage('Starting physics course')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Course</button>
+                        </div>
+                    </div>
+                    <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x400/6750A4/FFFFFF?text=Writing" alt="Creative Writing Basics" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Creative Writing Basics</h3>
+                            <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">Learn the craft of storytelling, character development, and creating compelling narratives.</p>
+                            <button onclick="showMessage('Starting creative writing course')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Course</button>
+                        </div>
+                    </div>
+                    <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x400/CCC4DA/1C1B1F?text=Web+Dev" alt="Web Development 101" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Web Development 101</h3>
+                            <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">A beginner-friendly course covering HTML, CSS, and JavaScript to get you started on building websites.</p>
+                            <button onclick="showMessage('Starting web dev course')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Course</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- about page -->
+            <section id="about-page" class="page hidden">
+                <h2 class="text-3xl font-bold text-[--on-surface-variant] mb-8 font-google-sans">About Us</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="bg-[--background-paper] rounded-3xl shadow-md flex p-6 items-center">
+                        <img src="https://placehold.co/100x100/6750A4/FFFFFF?text=LI" alt="Lorence Isidoro" class="w-24 h-24 rounded-full object-cover mr-6">
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-[--on-surface-variant] font-google-sans">Lorence M. Isidoro</h3>
+                            <p class="text-lg text-[--on-surface-variant] mb-2 font-google-sans-text">Project Lead</p>
+                            <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">A passionate developer and author dedicated to creating educational resources. Specializes in front-end development and UI/UX design.</p>
+                            <div class="flex space-x-2">
+                                <button onclick="showMessage('Navigating to Facebook'); gotofbrens();" class="text-[--primary-color] hover:text-[--secondary-color] transition-colors duration-200 physics-btn ">
+                                    <svg xmlns="http://www.w3.org/2000/svg " width="24 " height="24 " viewBox="0 0 24 24 " fill="none " stroke="currentColor " stroke-width="2 " stroke-linecap="round " stroke-linejoin="round " class="lucide lucide-facebook-icon
+                                    lucide-facebook "><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z "/>
+                                    </svg>
+                                </button>
+                                <button onclick="showMessage( 'Navigating to Github'); gotogitrens();" class="text-[--primary-color] hover:text-[--secondary-color] transition-colors duration-200 physics-btn ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github-icon lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[--background-paper] rounded-3xl shadow-md flex p-6 items-center ">
+                        <img src="https://placehold.co/100x100/9575CD/FFFFFF?text=JT" alt="Joe" class="w-24 h-24 rounded-full object-cover mr-6 ">
+                        <div class="flex-1 ">
+                            <h3 class="text-2xl font-bold text-[--on-surface-variant] font-google-sans ">Joe Tatel</h3>
+                            <p class="text-lg text-[--on-surface-variant] mb-2 font-google-sans-text ">Programmer & Data Base</p>
+                            <p class="text-[--on-surface-variant] mb-4 font-google-sans-text ">An Expert in Website and Data Base</p>
+                            <div class="flex space-x-2 ">
+                                <button onclick="showMessage( 'Navigating to Facebook') " class="text-[--primary-color] hover:text-[--secondary-color] transition-colors duration-200 physics-btn ">
+                                    <svg xmlns="http://www.w3.org/2000/svg " width="24 " height="24 " viewBox="0 0 24 24 " fill="none " stroke="currentColor " stroke-width="2 " stroke-linecap="round " stroke-linejoin="round " class="lucide lucide-facebook-icon
+                                    lucide-facebook "><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z "/>
+                                    </svg>                                
+                                </button>
+                                <button onclick="showMessage( 'Navigating to Instagram') " class="text-[--primary-color] hover:text-[--secondary-color] transition-colors duration-200 physics-btn ">
+                                    <svg xmlns="http://www.w3.org/2000/svg " width="24 " height="24 " viewBox="0 0 24 24 " fill="none " stroke="currentColor " stroke-width="2 " stroke-linecap="round " stroke-linejoin="round " class="lucide lucide-instagram-icon
+                                    lucide-instagram "><rect width="20 " height="20 " x="2 " y="2 " rx="5 " ry="5 "/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z "/><line x1="17.5 " x2="17.51 " y1="6.5 " y2="6.5 "/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[--background-paper] rounded-3xl shadow-md flex p-6 items-center ">
+                        <img src="https://placehold.co/100x100/9575CD/FFFFFF?text=JS" alt="Jm" class="w-24 h-24 rounded-full object-cover mr-6 ">
+                        <div class="flex-1 ">
+                            <h3 class="text-2xl font-bold text-[--on-surface-variant] font-google-sans ">Jm Santos</h3>
+                            <p class="text-lg text-[--on-surface-variant] mb-2 font-google-sans-text ">Researcher</p>
+                            <p class="text-[--on-surface-variant] mb-4 font-google-sans-text ">Course Researcher</p>
+                            <div class="flex space-x-2 ">
+                                <button onclick="showMessage( 'Navigating to Facebook') " class="text-[--primary-color] hover:text-[--secondary-color] transition-colors duration-200 physics-btn ">
+                                    <svg xmlns="http://www.w3.org/2000/svg " width="24 " height="24 " viewBox="0 0 24 24 " fill="none " stroke="currentColor " stroke-width="2 " stroke-linecap="round " stroke-linejoin="round " class="lucide lucide-facebook-icon
+                                    lucide-facebook "><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z "/>
+                                    </svg>
+                                </button>
+                                <button onclick="showMessage( 'Navigating to Instagram') " class="text-[--primary-color] hover:text-[--secondary-color] transition-colors duration-200 physics-btn ">
+                                    <svg xmlns="http://www.w3.org/2000/svg " width="24 " height="24 " viewBox="0 0 24 24 " fill="none " stroke="currentColor " stroke-width="2 " stroke-linecap="round " stroke-linejoin="round " class="lucide lucide-instagram-icon
+                                    lucide-instagram "><rect width="20 " height="20 " x="2 " y="2 " rx="5 " ry="5 "/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z "/><line x1="17.5 " x2="17.51 " y1="6.5 " y2="6.5 "/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[--background-paper] rounded-3xl shadow-md flex p-6 items-center ">
+                        <img src="https://placehold.co/100x100/9575CD/FFFFFF?text=DM" alt="Dre" class="w-24 h-24 rounded-full object-cover mr-6 ">
+                        <div class="flex-1 ">
+                            <h3 class="text-2xl font-bold text-[--on-surface-variant] font-google-sans ">Dré Mndz</h3>
+                            <p class="text-lg text-[--on-surface-variant] mb-2 font-google-sans-text ">Content Creator</p>
+                            <p class="text-[--on-surface-variant] mb-4 font-google-sans-text ">An expert in educational content and curriculum development. Focused on making complex subjects easy to understand for everyone.</p>
+                            <div class="flex space-x-2 ">
+                                <button onclick="showMessage( 'Navigating to Facebook') " class="text-[--primary-color] hover:text-[--secondary-color] transition-colors duration-200 physics-btn ">
+                                    <svg xmlns="http://www.w3.org/2000/svg " width="24 " height="24 " viewBox="0 0 24 24 " fill="none " stroke="currentColor " stroke-width="2 " stroke-linecap="round " stroke-linejoin="round " class="lucide lucide-facebook-icon
+                                    lucide-facebook "><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z "/>
+                                    </svg>
+                                </button>
+                                <button onclick="showMessage( 'Navigating to Instagram') " class="text-[--primary-color] hover:text-[--secondary-color] transition-colors duration-200 physics-btn ">
+                                    <svg xmlns="http://www.w3.org/2000/svg " width="24 " height="24 " viewBox="0 0 24 24 " fill="none " stroke="currentColor " stroke-width="2 " stroke-linecap="round " stroke-linejoin="round " class="lucide lucide-instagram-icon
+                                    lucide-instagram "><rect width="20 " height="20 " x="2 " y="2 " rx="5 " ry="5 "/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z "/><line x1="17.5 " x2="17.51 " y1="6.5 " y2="6.5 "/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- material 3 page -->
+            <section id="md3-page" class="page hidden ">
+                <div class="text-center p-8 rounded-3xl ">
+                    <h2 class="text-3xl font-bold text-[--on-surface-variant] mb-4 font-google-sans ">Special thanks to Material Design 3</h2>
+                    <p class="text-lg text-[--on-surface-variant] max-w-2xl mx-auto font-google-sans-text ">Thank you for the wonderful inspiration from the Material Design 3 website. This entire project is a testament to the clean, modern, and user-centric design.</p>
+                    <br>
+                    <h2 class="text-3xl font-bold text-[--on-surface-variant] mb-4 font-google-sans ">Also special thanks to TailWind CSS</h2>
+                    <p class="textt-lg text-[--on-surface-variant] max-w-2xl mx-auto font-google-sans-text ">Thanks to Tailwind teams for awesome pre conf CSS classes.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="main.js "></script>
+</body>
+
+</html>
