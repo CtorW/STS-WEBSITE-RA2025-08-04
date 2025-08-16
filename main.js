@@ -14,6 +14,38 @@
         const modalImage = document.getElementById('modal-image');
         const startExploringBtn = document.getElementById('start-exploring-btn');
         const rocketEmoji = document.getElementById('rocket-emoji');
+        const articleModal = document.getElementById('article-modal');
+        const articleModalTitle = document.getElementById('article-modal-title');
+        const articleModalText = document.getElementById('article-modal-text');
+
+
+        // news modal body
+        const articles = [{
+                title: "STS Library's New Digital Archiving Initiative",
+                text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
+            },
+            {
+                title: "Annual STEM Fair Showcases Student Innovation",
+                text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
+            },
+            {
+                title: "New After-School Tutoring Program Launched",
+                text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
+            },
+            {
+                title: "Guest Lecture Series Features Dr. Evelyn Reed",
+                text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
+            },
+            {
+                title: "Library Expands Digital Media Collection",
+                text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
+            },
+            {
+                title: "Volunteers Needed for Annual Book Drive",
+                text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
+            }
+        ];
+
         // function to show temporary message box
         function showMessage(message) {
             messageBox.textContent = message;
@@ -115,8 +147,37 @@
             imageModal.classList.remove('show');
         }
 
+        // function for show news modal
+        function showArticleModal(articleIndex) {
+            const article = articles[articleIndex];
+            if (article) {
+                articleModalTitle.textContent = article.title;
+                articleModalText.textContent = article.text;
+                articleModal.style.display = 'flex'; // Make the modal visible first
+                setTimeout(() => {
+                    articleModal.classList.add('show');
+                }, 5);
+            }
+        }
+
+        // function for news modal - remove
+        function closeArticleModal() {
+            const articleModalContent = document.getElementById('article-modal-content');
+            articleModalContent.classList.add('is-closing');
+            articleModal.classList.remove('show');
+            setTimeout(() => {
+                articleModalContent.classList.remove('is-closing');
+                articleModal.style.display = 'none';
+            }, 250);
+        }
+
         // add event listeners to close the modal
         imageModal.addEventListener('click', closeImageModal);
+        articleModal.addEventListener('click', (e) => {
+            if (e.target.id === 'article-modal') {
+                closeArticleModal();
+            }
+        });
 
         // Add event listener for the rocket animation
         startExploringBtn.addEventListener('click', (e) => {
@@ -128,5 +189,6 @@
                 rocketEmoji.classList.add('animate');
             }, 10);
         });
+
 
         // helped by Stackoverflow community (thansk RA 2-7 STS modern website - Showcase)
