@@ -95,7 +95,7 @@
         });
         // lorence functions
         function gotofbrens() {
-            window.open('https://www.facebook.com', '_blank');
+            window.open('https://www.facebook.com/streetx.rnc', '_blank');
         }
 
         function gotogitrens() {
