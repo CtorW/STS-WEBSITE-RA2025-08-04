@@ -137,7 +137,10 @@
                 <div class="text-center p-8 rounded-3xl mb-8">
                     <h2 class="text-5xl font-bold text-[--on-surface-variant] mb-4 font-google-sans">Welcome to the STS Library</h2>
                     <p class="text-xl text-[--on-surface-variant] mb-6 font-google-sans-text">Your gateway to a world of knowledge. Explore our collections, discover new courses, and more.</p>
-                    <button class="bg-[--primary-color] text-[--primary-text-color] font-bold py-3 px-8 rounded-full shadow-lg hover:bg-opacity-90 transition-colors duration-200 physics-btn font-google-sans-text">Start Exploring</button>
+                    <button id="start-exploring-btn" onclick="showPage(document.querySelector('li[onclick*=\'home\']'), 'home')" class="bg-[--primary-color] text-[--primary-text-color] font-bold py-3 px-8 rounded-full shadow-lg hover:bg-opacity-90 transition-colors duration-200 physics-btn font-google-sans-text relative overflow-hidden">
+                        <span>Start Exploring</span>
+                        <span id="rocket-emoji" class="rocket-emoji">🚀</span>
+                    </button>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
                     <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
@@ -145,7 +148,7 @@
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Latest News</h3>
                             <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">Stay up-to-date with our latest announcements and events.</p>
-                            <button onclick="showMessage('Navigating to news article')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">Read More</button>
+                            <button onclick="showMessage('Navigating to news article'); showPage(this, 'news')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">Read More</button>
                         </div>
                     </div>
                     <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
@@ -153,7 +156,7 @@
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Browse Gallery</h3>
                             <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">View a collection of beautiful images from our events.</p>
-                            <button onclick="showMessage('Opening gallery view')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Gallery</button>
+                            <button onclick="showMessage('Opening gallery view'); showPage(this, 'gallery')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Gallery</button>
                         </div>
                     </div>
                     <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
@@ -161,7 +164,7 @@
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Free Courses</h3>
                             <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">Learn something new with our completely free courses.</p>
-                            <button onclick="showMessage('Exploring free courses')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">Explore Courses</button>
+                            <button onclick="showMessage('Exploring free courses'); showPage(this, 'free-courses')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">Explore Courses</button>
                         </div>
                     </div>
                 </div>
@@ -237,7 +240,7 @@
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Project Showcase</h3>
                             <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">A glimpse into the latest projects from our students and faculty, demonstrating creativity and technical skill.</p>
-                            <button onclick="showMessage('Viewing full image')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Full Image</button>
+                            <button onclick="showMessage('Viewing full image'); showImageModal(this.parentNode.parentNode)" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Full Image</button>
                         </div>
                     </div>
                     <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
@@ -245,7 +248,7 @@
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Classroom Activities</h3>
                             <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">Photos capturing dynamic learning environments and engaging group discussions.</p>
-                            <button onclick="showMessage('Viewing full image')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Full Image</button>
+                            <button onclick="showMessage('Viewing full image'); showImageModal(this.parentNode.parentNode)" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Full Image</button>
                         </div>
                     </div>
                     <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
@@ -253,7 +256,7 @@
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Lab Experiments</h3>
                             <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">Highlighting hands-on experiences and scientific discoveries in our state-of-the-art laboratories.</p>
-                            <button onclick="showMessage('Viewing full image')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Full Image</button>
+                            <button onclick="showMessage('Viewing full image'); showImageModal(this.parentNode.parentNode)" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Full Image</button>
                         </div>
                     </div>
                     <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
@@ -261,7 +264,7 @@
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Campus Tour</h3>
                             <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">Images showcasing the beautiful architecture and vibrant life of the campus.</p>
-                            <button onclick="showMessage('Viewing full image')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Full Image</button>
+                            <button onclick="showMessage('Viewing full image'); showImageModal(this.parentNode.parentNode)" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Full Image</button>
                         </div>
                     </div>
                     <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
@@ -269,7 +272,7 @@
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Guest Speakers</h3>
                             <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">Moments from our recent lecture series, featuring prominent figures in science and technology.</p>
-                            <button onclick="showMessage('Viewing full image')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Full Image</button>
+                            <button onclick="showMessage('Viewing full image'); showImageModal(this.parentNode.parentNode)" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Full Image</button>
                         </div>
                     </div>
                     <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
@@ -277,7 +280,7 @@
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Library Archives</h3>
                             <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">A look into the rare books and historical documents housed in our special collections.</p>
-                            <button onclick="showMessage('Viewing full image')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Full Image</button>
+                            <button onclick="showMessage('Viewing full image'); showImageModal(this.parentNode.parentNode)" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Full Image</button>
                         </div>
                     </div>
                 </div>
@@ -412,6 +415,10 @@
             </section>
         </div>
     </main>
+    <!-- image modal -->
+    <div id="image-modal" class="image-modal">
+        <img id="modal-image" src="" alt="Full size image" class="image-modal-content">
+    </div>
 
     <script src="main.js "></script>
 </body>

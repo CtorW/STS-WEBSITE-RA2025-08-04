@@ -10,7 +10,10 @@
         const body = document.body;
         const mobileDrawer = document.getElementById('mobile-drawer');
         const messageBox = document.getElementById('message-box');
-
+        const imageModal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+        const startExploringBtn = document.getElementById('start-exploring-btn');
+        const rocketEmoji = document.getElementById('rocket-emoji');
         // function to show temporary message box
         function showMessage(message) {
             messageBox.textContent = message;
@@ -98,4 +101,32 @@
         function gotogitrens() {
             window.open('https://github.com/CtorW', '_blank');
         }
+
+        function showImageModal(cardElement) {
+            const image = cardElement.querySelector('img');
+            if (image) {
+                modalImage.src = image.src;
+                imageModal.classList.add('show');
+            }
+        }
+
+        // function to close the image modal
+        function closeImageModal() {
+            imageModal.classList.remove('show');
+        }
+
+        // add event listeners to close the modal
+        imageModal.addEventListener('click', closeImageModal);
+
+        // Add event listener for the rocket animation
+        startExploringBtn.addEventListener('click', (e) => {
+            // Prevent the default navigation for the animation
+            e.preventDefault();
+            rocketEmoji.classList.remove('animate');
+            // Use a short delay to re-add the class, allowing the animation to restart on click
+            setTimeout(() => {
+                rocketEmoji.classList.add('animate');
+            }, 10);
+        });
+
         // helped by Stackoverflow community (thansk RA 2-7 STS modern website - Showcase)
