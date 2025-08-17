@@ -21,28 +21,48 @@
 
         // news modal body
         const articles = [{
-                title: "STS Library's New Digital Archiving Initiative",
-                text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
+                title: "Campus Tour!",
+                text: `Your dream deserves a strong start, and we’re here to help you make it happen!
+
+Last week’s campus tour was full of energy. Students and parents explored the PHINMA SJC campus, joined hands-on workshops, and experienced first-hand what it’s like to be part of a school that truly supports students’ dreams. 
+Now it’s your turn!
+
+Join us for the next campus tour on May 9, from 1 to 5 PM, and see how PHINMA SJC can help you succeed. 
+<a href="https://share.hsforms.com/1Sw38ma5qTYywUkRgD8qsuwdu1n5" target="_blank" class="text-[--primary-color] hover:underline">Sign up now</a>.`
             },
             {
-                title: "Annual STEM Fair Showcases Student Innovation",
-                text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
+                title: "Campus Visit and Career Talk",
+                text: `Our future educators got a chance to explore career and learning opportunities abroad in a recent career talk hosted by Trades and Professions, Inc. and Chicago Public School (CPS). Following the insightful engagement with students, PHINMA SJC and Trades and Professions officials discussed potential long-term partnerships aimed to support the students in the field of education.`
             },
             {
-                title: "New After-School Tutoring Program Launched",
-                text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
+                title: "200 units strong 💪🖥️",
+                text: `On top of 3 existing computer labs, PHINMA SJC opens up another one in the Manila Campus with 50 brand-new Lenovo PCs equipped with WINDOWS 11, Intel Core i5, 8GB RAM and 256GB SSD storage.
+The new units are set to provide the necessary technology for our BSIT students to learn under industry standards. 
+`
             },
             {
-                title: "Guest Lecture Series Features Dr. Evelyn Reed",
-                text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
+                title: "Victories across the board! 🥇🥇🥇",
+                text: `ICYMI: Students and faculty from the College of Information Technology Education (CITE) secured the top 7 spots after competing against IT Professionals and students from computer-focused colleges in the recent Cybersecurity Symposiums hosted by Asia Symposiums last November 7. 
+The competition consists of solving a series of tech-related puzzles through a modified version of “Capture the Flag” using White-hat hacking techniques.
+Congratulations!
+Renzo Cua (Champion)
+Ian Abrigo (2nd Place)
+Arnold Solilapsi (Teacher - 3rd Place)
+Ramon Brinquez (4th Place)
+Reichele Cazenas (5th Place)
+Chamian Rameses (6th Place)
+Hariette Onofre (Teacher - 7th Place)`
             },
             {
-                title: "Library Expands Digital Media Collection",
-                text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
+                title: "Capped, pinned, and ready for duty 🫡👩‍⚕️🧑‍🔬",
+                text: `Our upperclassmen students from the College of Allied Health Sciences(CAHS) step into the next chapter of their allied health journey at Illuminating Futures: Pinning for Tomorrow's Healthcare Leaders yesterday, September 4(Wednesday), at the Manila Cathedral in Intramuros.
+Students present during the event consisted of Y2, Y3, and Y4 students taking up Medical Laboratory Sciences, Nursing, Psychology, Pharmacy, Physical Therapy, Radiologic Technology, and Respiratory Therapy.`
             },
             {
-                title: "Volunteers Needed for Annual Book Drive",
-                text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
+                title: "ICYMI: May chance ka pa to #LiveYourTomorrow! 💪💚🔮",
+                text: `Pagkakataon mo nang makita kung ano ang iba't-ibang experience sa bawat college course sa aming FREE CAMPUS TOUR!
+Message us on Facebook or call us for more details!
+<a href="https://www.facebook.com/phinmasjc/" target="_blank" class="text-[--primary-color] hover:underline">Facebook Link</a>.`
             }
         ];
 
@@ -178,7 +198,7 @@
             const article = articles[articleIndex];
             if (article) {
                 articleModalTitle.textContent = article.title;
-                articleModalText.textContent = article.text;
+                articleModalText.innerHTML = article.text;
                 articleModal.style.display = 'flex'; // Make the modal visible first
                 setTimeout(() => {
                     articleModal.classList.add('show');
