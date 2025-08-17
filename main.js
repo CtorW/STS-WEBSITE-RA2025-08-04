@@ -133,6 +133,30 @@
         function gotogitrens() {
             window.open('https://github.com/CtorW', '_blank');
         }
+        // joe functions 
+        function gotofbjoe() {
+            window.open('https://www.facebook.com/profile.php?id=61578404446654#', '_blank');
+        }
+
+        function gotoinsjoe() {
+            window.open('#', '_blank');
+        }
+        // jm functions
+        function gotofbjm() {
+            window.open('https://www.facebook.com/jmsantos06#', '_blank');
+        }
+
+        function gotoinsjoe() {
+            window.open('#', '_blank');
+        }
+        // dre functions
+        function gotofbdre() {
+            window.open('https://www.facebook.com/andrymhar15', '_blank');
+        }
+
+        function gotoinsdre() {
+            window.open('#', '_blank');
+        }
 
         function showImageModal(cardElement) {
             const image = cardElement.querySelector('img');
@@ -141,6 +165,8 @@
                 imageModal.classList.add('show');
             }
         }
+
+
 
         // function to close the image modal
         function closeImageModal() {
@@ -179,7 +205,7 @@
             }
         });
 
-        // Add event listener for the rocket animation
+        // ddd event listener for the rocket animation
         startExploringBtn.addEventListener('click', (e) => {
             // Prevent the default navigation for the animation
             e.preventDefault();
