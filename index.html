@@ -308,7 +308,7 @@
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Introduction to Physics</h3>
                             <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">Explore the fundamental principles of the universe, from classical mechanics to quantum theory.</p>
-                            <button onclick="showMessage('Starting physics course')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Course</button>
+                            <button onclick="showCourseModal(0); showMessage('Viewing physics course')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Course</button>
                         </div>
                     </div>
                     <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
@@ -316,7 +316,7 @@
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Creative Writing Basics</h3>
                             <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">Learn the craft of storytelling, character development, and creating compelling narratives.</p>
-                            <button onclick="showMessage('Starting creative writing course')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Course</button>
+                            <button onclick="showCourseModal(1); showMessage('Viewing writing course')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Course</button>
                         </div>
                     </div>
                     <div class="bg-[--background-paper] rounded-3xl shadow-md overflow-hidden">
@@ -324,7 +324,7 @@
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-[--on-surface-variant] mb-2 font-google-sans">Web Development 101</h3>
                             <p class="text-[--on-surface-variant] mb-4 font-google-sans-text">A beginner-friendly course covering HTML, CSS, and JavaScript to get you started on building websites.</p>
-                            <button onclick="showMessage('Starting web dev course')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Course</button>
+                            <button onclick="showCourseModal(2); showMessage('Viewing web dev course')" class="bg-transparent text-[--primary-color] font-bold py-2 px-4 rounded-full border border-[--primary-color] hover:bg-[--primary-color] hover:text-[--primary-text-color] transition-colors duration-200 physics-btn font-google-sans-text">View Course</button>
                         </div>
                     </div>
                 </div>
@@ -443,6 +443,25 @@
         </button>
             <h3 id="article-modal-title" class="text-3xl font-bold font-google-sans mb-4 text-[--on-surface-variant]"></h3>
             <p id="article-modal-text" class="text-lg font-google-sans-text text-[--on-surface-variant] leading-relaxed whitespace-pre-wrap"></p>
+        </div>
+    </div>
+    <!-- course modal -->
+    <div id="course-modal" class="course-modal">
+        <div id="course-modal-content" class="course-modal-content">
+            <button onclick="closeCourseModal()" class="absolute top-4 right-4 text-[--on-surface-variant] hover:text-[--primary-color] transition-colors duration-200 physics-btn z-10">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="p-6">
+                <img id="course-modal-image" src="" alt="Course Image" class="w-full h-48 object-cover rounded-2xl mb-4">
+                <h3 id="course-modal-title" class="text-3xl font-bold font-google-sans mb-2 text-[--on-surface-variant]"></h3>
+                <p id="course-modal-text" class="text-lg font-google-sans-text text-[--on-surface-variant] mb-6"></p>
+                <a id="course-download-link" href="#" target="_blank">
+                    <button class="bg-[--primary-color] text-[--primary-text-color] font-bold py-3 px-8 rounded-full shadow-lg hover:bg-opacity-90 transition-colors duration-200 physics-btn font-google-sans-text w-full">
+                        <span class="material-symbols-outlined mr-2">download</span>
+                        Download Course
+                    </button>
+                </a>
+            </div>
         </div>
     </div>
     <script src="main.js "></script>

@@ -17,7 +17,11 @@
         const articleModal = document.getElementById('article-modal');
         const articleModalTitle = document.getElementById('article-modal-title');
         const articleModalText = document.getElementById('article-modal-text');
-
+        const courseModal = document.getElementById('course-modal');
+        const courseModalImage = document.getElementById('course-modal-image');
+        const courseModalTitle = document.getElementById('course-modal-title');
+        const courseModalText = document.getElementById('course-modal-text');
+        const courseDownloadLink = document.getElementById('course-download-link');
 
         // news modal body
         const articles = [{
@@ -65,6 +69,24 @@ Message us on Facebook or call us for more details!
 <a href="https://www.facebook.com/phinmasjc/" target="_blank" class="text-[--primary-color] hover:underline">Facebook Link</a>.`
             }
         ];
+
+        // course data for modal
+        const courses = [{
+            title: "Introduction to Physics",
+            image: "https://placehold.co/600x400/9575CD/FFFFFF?text=Physics+Course",
+            text: "Explore the fundamental principles of the universe, from classical mechanics to quantum theory. This course is designed for beginners and provides a solid foundation for more advanced studies. You will learn about key concepts such as motion, energy, and thermodynamics through engaging lectures and practical examples.",
+            link: "https://example.com/physics-course.pdf"
+        }, {
+            title: "Creative Writing Basics",
+            image: "https://placehold.co/600x400/6750A4/FFFFFF?text=Writing+Course",
+            text: "Learn the craft of storytelling, character development, and creating compelling narratives. This course covers essential techniques for developing your voice, plotting a story, and crafting memorable characters. Whether you're a budding novelist or a poet, this course will help you unleash your creativity.",
+            link: "https://example.com/writing-course.pdf"
+        }, {
+            title: "Web Development 101",
+            image: "https://placehold.co/600x400/CCC4DA/1C1B1F?text=Web+Dev+Course",
+            text: "A beginner-friendly course covering HTML, CSS, and JavaScript to get you started on building websites. This course will guide you through the process of creating a simple, responsive website from scratch. No prior coding experience is required—just a passion for building things for the web.",
+            link: "https://example.com/webdev-course.pdf"
+        }];
 
         // function to show temporary message box
         function showMessage(message) {
@@ -186,7 +208,22 @@ Message us on Facebook or call us for more details!
             }
         }
 
-
+        // function to show course modal
+        function showCourseModal(courseIndex) {
+            const course = courses[courseIndex];
+            if (course) {
+                courseModalImage.src = course.image;
+                courseModalTitle.textContent = course.title;
+                courseModalText.textContent = course.text;
+                courseDownloadLink.href = course.link;
+                courseModal.classList.add('show');
+            }
+        }
+        
+        // function to close course modal
+        function closeCourseModal() {
+            courseModal.classList.remove('show');
+        }
 
         // function to close the image modal
         function closeImageModal() {
@@ -222,6 +259,11 @@ Message us on Facebook or call us for more details!
         articleModal.addEventListener('click', (e) => {
             if (e.target.id === 'article-modal') {
                 closeArticleModal();
+            }
+        });
+        courseModal.addEventListener('click', (e) => {
+            if (e.target === courseModal) {
+                closeCourseModal();
             }
         });
 
